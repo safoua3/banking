@@ -5,12 +5,14 @@ import sys
 import pickle
 import pandas as pd
 import pytest
-from api import app,predict,model
+#from api import app,predict,model
 directory=os.path.dirname(os.path.abspath(__file__))
 # Add the directory of the file you want to import
-file_dir = 'directory/MODEL_PREDICTION/app.py'
-file_api=sys.path.append(os.path.abspath(file_dir))
-#from api import app,predict,model
+#file_dir = 'directory/MODEL_PREDICTION/api.py'
+#file_api=sys.path.append(os.path.abspath(file_dir))
+directory = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(directory,".."))
+from api import app,predict,model
 
 @pytest.fixture
 def client():
