@@ -13,4 +13,5 @@ scikit_learn
 lightgbm
 shap
 gunicorn
+Werkzeug==2.2.2
 
