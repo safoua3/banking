@@ -15,8 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run test unitaire 
-        run: |
-          pytest./tests_unitaires/test_unitaire2.py
+        run: pytest ./tests_unitaires/test_unitaire2.py
 
 
 ### ⬇ IMPORTANT PART ⬇ ###
