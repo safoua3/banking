@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Run test unitaire 
         run: |
-          pytest./MODEL_PREDICTION/tests_unitaires/test_unitaire2
+          pytest./tests_unitaires/test_unitaire2.py
 
 
 ### ⬇ IMPORTANT PART ⬇ ###
