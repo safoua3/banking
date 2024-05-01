@@ -10,7 +10,7 @@ import pytest
 # Add the directory of the file you want to import
 file_dir = '/MODEL_PREDICTION/app.py'
 file_api=sys.path.append(os.path.abspath(file_dir))
-from api import app,predict,model
+from app import app,predict,model
 
 
 
