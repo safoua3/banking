@@ -12,7 +12,7 @@ directory=os.path.dirname(os.path.abspath(__file__))
 #file_api=sys.path.append(os.path.abspath(file_dir))
 directory = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(directory,".."))
-from api import app,predict,model
+from app import app,predict,model
 
 @pytest.fixture
 def client():
