@@ -25,7 +25,8 @@ def predict():
 
         sample = df.loc[df['SK_ID_CURR']==id]
         #print(sample)
-        sample = sample.drop(columns=['SK_ID_CURR'])
+        #sample = sample.drop(columns=['SK_ID_CURR'])
+        
         #print(sample)
         proba = model.predict_proba(sample)[:, 1][0]
         #proba = prediction[0][1]
