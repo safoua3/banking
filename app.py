@@ -23,9 +23,10 @@ def predict():
         print(str(id))
         #df = pd.read_csv("testing.csv")
         df = pd.read_csv('testing.csv', delimiter=',')
+        mask = df['SK_ID_CURR'] == id
+        sample = df.loc[mask] 
 
-
-        sample = df.loc[df["SK_ID_CURR"]==id]
+        #sample = df.loc[df["SK_ID_CURR"]==id]
 
         #print(sample)
         #sample = sample.drop(columns=['SK_ID_CURR'])
