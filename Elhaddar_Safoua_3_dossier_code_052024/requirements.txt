@@ -4,7 +4,7 @@ shap
 Flask==2.0.1
 requests
 streamlit
-pandas==1.2.4
+pandas==2.1.4
 numpy
 matplotlib
 seaborn

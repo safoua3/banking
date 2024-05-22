@@ -21,17 +21,22 @@ def predict():
      
     else:
         print(str(id))
-        #df = pd.read_csv("test_data.csv")
-        df = pd.read_csv("testing.csv")
+        #df = pd.read_csv("testing.csv")
+        df = pd.read_csv('testing.csv', delimiter=',')
+        mask = df['SK_ID_CURR'] == id
+        sample = df.loc[mask] 
 
-        sample = df.loc[df['SK_ID_CURR']==id]
+        #sample = df.loc[df["SK_ID_CURR"]==id]
+
         #print(sample)
-        sample = sample.drop(columns=['SK_ID_CURR'])
+        #sample = sample.drop(columns=['SK_ID_CURR'])
+        
+        
         #print(sample)
         proba = model.predict_proba(sample)[:, 1][0]
         #proba = prediction[0][1]
         print(proba)
-        seuil=0.575
+        seuil=0.54
         if proba >= seuil:
             Pret = "Accepté"
         else:
