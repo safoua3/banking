@@ -24,14 +24,14 @@ def client():
 def test_data():
     # Determine le chemin du fichier CSV
     #path = os.path.join(current_directory, "..","test_data.csv")
-    data = pd.read_csv('test_data.csv')
+    data = pd.read_csv('testing.csv')
     # Vérifie que le DataFrame n'est pas vide
     assert not data.empty, "Error chargement du data."
     # Teste le chargement du modèle de prédiction
 def test_model():
     # Détermine le chemin du fichier contenant le modèle entraîné
     # Charge le modèle à partir du fichier
-    model = pickle.load(open("model.pkl","rb"))
+    model = pickle.load(open("best_model.pkl","rb"))
 
     # Vérifie que le modèle a été chargé correctement
     assert model is not None, "Error chargement du modèle."

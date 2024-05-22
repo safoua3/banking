@@ -21,7 +21,6 @@ def predict():
      
     else:
         print(str(id))
-        #df = pd.read_csv("test_data.csv")
         df = pd.read_csv("testing.csv")
 
         sample = df.loc[df['SK_ID_CURR']==id]
