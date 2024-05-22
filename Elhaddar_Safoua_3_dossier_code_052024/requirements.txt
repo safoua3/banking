@@ -1,12 +1,19 @@
 pytest
 joblib
 shap
+<<<<<<< HEAD
 #Flask==2.0.1
 Flask
 requests
 streamlit
 #pandas==2.1.4
 pandas
+=======
+Flask==2.0.1
+requests
+streamlit
+pandas==2.1.4
+>>>>>>> origin/master
 numpy
 matplotlib
 seaborn
@@ -14,8 +21,13 @@ plotly
 scikit_learn
 lightgbm
 shap
+<<<<<<< HEAD
 #gunicorn==20.1.0
 gunicorn
 #Werkzeug==2.2.2
 Werkzeug
+=======
+gunicorn==20.1.0
+Werkzeug==2.2.2
+>>>>>>> origin/master
 
