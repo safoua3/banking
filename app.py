@@ -1,35 +1,51 @@
-from flask import Flask, request, jsonify
+#https://safoua-ea72e808f916.herokuapp.com/predict?id=
+import os
+import pickle
 import pandas as pd
+#import shap
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Supposons que df soit votre DataFrame chargé globalement
-df = pd.read_csv('testing.csv')  # Chargez votre fichier de données ici
 
-@app.route('/predict', methods=['GET'])
+
+# Charger le modèle en dehors de la clause if __name__ == "__main__":
+#model_path = os.path.join(current_directory, "..", "Simulations", "Best_model", "model.pkl")
+#model = pickle.load(open("model.pkl","rb"))
+model = pickle.load(open("best_model.pkl","rb"))
+@app.route("/predict", methods=['GET'])
 def predict():
-    id = request.args.get('id', type=int)
-    if id is None:
-        return jsonify({"error": "ID manquant"}), 400
+    id =int(request.args.get('id'))
+    if id==None :
+        return "cet identifiant n'existe pas"
+     
+    else:
+        print(str(id))
+        #df = pd.read_csv("testing.csv")
+        df = pd.read_csv('testing.csv', delimiter=',')
+        mask = df['SK_ID_CURR'] == id
+        sample = df.loc[mask] 
 
-    print(f"ID reçu: {id}")
-    print("Colonnes disponibles dans le DataFrame:", df.columns)
+        #sample = df.loc[df["SK_ID_CURR"]==id]
 
-    if 'SK_ID_CURR' not in df.columns:
-        return jsonify({"error": "La colonne 'SK_ID_CURR' n'existe pas dans le DataFrame."}), 500
-
-    try:
-        sample = df.loc[df['SK_ID_CURR'] == id]
-        if sample.empty:
-            return jsonify({"error": "ID non trouvé"}), 404
+        #print(sample)
+        #sample = sample.drop(columns=['SK_ID_CURR'])
         
-        # Ajoutez ici votre logique pour la prédiction
-        prediction = "votre_prédiction"
+        
+        #print(sample)
+        proba = model.predict_proba(sample)[:, 1][0]
+        #proba = prediction[0][1]
+        print(proba)
+        seuil=0.54
+        if proba >= seuil:
+            Pret = "Accepté"
+        else:
+            Pret = "Refusé"
+        return jsonify({'probabilite': proba, 'Pret': Pret})
+    
+    
 
-        return jsonify({"id": id, "prediction": prediction})
-
-    except KeyError as e:
-        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5002)
+
