@@ -22,7 +22,7 @@ def predict():
      
     else:
         print(str(id))
-        path = os.path.join(currentdirectory, "..","testing.csv")
+        path = os.path.join(currentdirectory,"testing.csv")
 
         df = pd.read_csv(path)
         mask = df['SK_ID_CURR'] == id
