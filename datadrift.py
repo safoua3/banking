@@ -7,7 +7,9 @@ from evidently import ColumnMapping
 from evidently.report import Report
 from evidently.metric_preset import DataDriftPreset
 
-data=pd.read_csv('data_drift.csv')
+#data=pd.read_csv('data_drift.csv')
+data=pd.read_csv('sample_data_drift.csv')
+
 
 #data_modelisation=data.dropna(subset=['TARGET']).drop(columns=['SK_ID_CURR','TARGET'])
 #verifier que le data ne contient pas de valeurs manquantes sur la target et supprimer les colonnes sk_idd et target  qui ne sont pas pertinentes pour évaluer les performances du modèle.

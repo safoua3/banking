@@ -1,0 +1,17 @@
+pytest
+joblib
+shap
+Flask
+requests
+streamlit
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+scikit_learn
+lightgbm
+shap
+gunicorn
+Werkzeug==2.2.2
+
