@@ -18,7 +18,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+<<<<<<< HEAD
       - name: Run test unitaire 
+=======
+       -name: Run test unitaire 
+>>>>>>> 78aedba5c3b8ac216a2ec598dd69e40bf203d4d6
         run: pytest ./tests_unitaires/test_unitaire2.py
       
 
