@@ -6,6 +6,7 @@ import pandas as pd
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
+currentdirectory = os.getcwd()
 
 
 
@@ -21,8 +22,9 @@ def predict():
      
     else:
         print(str(id))
-        #df = pd.read_csv("testing.csv")
-        df = pd.read_csv('testing.csv')
+        path = os.path.join(currentdirectory, "..","testing.csv")
+
+        df = pd.read_csv(path)
         mask = df['SK_ID_CURR'] == id
         sample = df.loc[mask] 
 
