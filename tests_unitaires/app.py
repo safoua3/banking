@@ -25,7 +25,6 @@ def predict():
 <<<<<<< HEAD
         df = pd.read_csv('testing.csv')
 =======
-        df = pd.read_csv('testing.csv', delimiter=',')
 >>>>>>> origin/master
         mask = df['SK_ID_CURR'] == id
         sample = df.loc[mask] 
