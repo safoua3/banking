@@ -1,10 +1,10 @@
 pytest
 joblib
 shap
-Flask
+Flask==2.0.1
 requests
 streamlit
-pandas
+pandas==1.2.4
 numpy
 matplotlib
 seaborn
@@ -12,6 +12,6 @@ plotly
 scikit_learn
 lightgbm
 shap
-gunicorn
+gunicorn==20.1.0
 Werkzeug==2.2.2
 
