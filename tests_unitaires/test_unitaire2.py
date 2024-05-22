@@ -13,7 +13,7 @@ directory=os.path.dirname(os.path.abspath(__file__))
 directory = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(directory,".."))
 from app import app,predict,model
-
+currentdirectory = os.getcwd()
 @pytest.fixture
 def client():
     with app.test_client() as client:
@@ -23,8 +23,8 @@ def client():
 # test du chargement du fichier csv de motre data
 def test_data():
     # Determine le chemin du fichier CSV
-    #path = os.path.join(current_directory, "..","test_data.csv")
-    data = pd.read_csv('testing.csv')
+    path = os.path.join(currentdirectory,"","testing.csv")
+    data = pd.read_csv(path)
     # Vérifie que le DataFrame n'est pas vide
     assert not data.empty, "Error chargement du data."
     # Teste le chargement du modèle de prédiction
