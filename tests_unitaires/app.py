@@ -6,8 +6,8 @@ import pandas as pd
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
-
 currentdirectory = os.getcwd()
+
 
 
 # Charger le modèle en dehors de la clause if __name__ == "__main__":
@@ -22,18 +22,14 @@ def predict():
      
     else:
         print(str(id))
-        path = os.path.join(currentdirectory,"testing.csv")
-        df = pd.read_csv(path)
-        mask = df['SK_ID_CURR'] == id
-        sample = df.loc[mask] 
-
-        #sample = df.loc[df["SK_ID_CURR"]==id]
-
+        df=pd.read_csv('testing.csv')
+        sample = df.loc[df['SK_ID_CURR'] == id]
+        
         #print(sample)
         #sample = sample.drop(columns=['SK_ID_CURR'])
         
         
-        #print(sample)
+        print(sample)
         proba = model.predict_proba(sample)[:, 1][0]
         #proba = prediction[0][1]
         print(proba)

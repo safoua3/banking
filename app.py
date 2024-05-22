@@ -22,19 +22,14 @@ def predict():
      
     else:
         print(str(id))
-        path = os.path.join(currentdirectory,"testing.csv")
-
-        df = pd.read_csv(path)
-        mask = df['SK_ID_CURR'] == id
-        sample = df.loc[mask] 
-
-        #sample = df.loc[df["SK_ID_CURR"]==id]
-
+        df=pd.read_csv('testing.csv')
+        sample = df.loc[df['sk_id_curr'] == id]
+        
         #print(sample)
         #sample = sample.drop(columns=['SK_ID_CURR'])
         
         
-        #print(sample)
+        print(sample)
         proba = model.predict_proba(sample)[:, 1][0]
         #proba = prediction[0][1]
         print(proba)
