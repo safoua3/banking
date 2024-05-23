@@ -22,7 +22,7 @@ def predict():
      
     else:
         print(str(id))
-        df=pd.read_csv('testing.csv',delimiter=',')
+        df=pd.read_csv('dl.csv',delimiter=',')
         sample = df.loc[df['SK_ID_CURR'] == id]
         
         #print(sample)
