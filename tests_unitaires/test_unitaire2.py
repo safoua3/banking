@@ -23,7 +23,7 @@ def client():
 # test du chargement du fichier csv de motre data
 def test_data():
     # Determine le chemin du fichier CSV
-    path = os.path.join(currentdirectory,"","testing.csv")
+    path = os.path.join(currentdirectory,"","dl.csv")
     data = pd.read_csv(path)
     # Vérifie que le DataFrame n'est pas vide
     assert not data.empty, "Error chargement du data."
