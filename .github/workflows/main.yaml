@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run test unitaire 
 
-       -name: Run test unitaire 
+      -name: Run test unitaire 
         run: pytest ./tests_unitaires/test_unitaire2.py
       
 
